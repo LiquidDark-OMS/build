@@ -115,7 +115,6 @@ ifeq "" "$(PLATFORM_SECURITY_PATCH)"
     #  It must match one of the Android Security Patch Level strings of the Public Security Bulletins.
     #  If there is no $PLATFORM_SECURITY_PATCH set, keep it empty.
       PLATFORM_SECURITY_PATCH := 2016-10-05
-endif
 
 ifeq "" "$(PLATFORM_BASE_OS)"
   # Used to indicate the base os applied to the device.
