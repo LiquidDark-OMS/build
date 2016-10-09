@@ -1864,6 +1864,7 @@ otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 nougat: otapackage
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(CUSTOM_TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(CUSTOM_TARGET_PACKAGE) > $(CUSTOM_TARGET_PACKAGE).md5sum
+	
 	@echo -e ${CL_BLU}""${CL_BLU}
 	@echo -e ${CL_BLU}"...................................................................."${CL_BLU}
 	@echo -e ${CL_BLU}"..........##.......####..#######..##.....##.####.########..........."${CL_BLU}
@@ -1884,9 +1885,9 @@ nougat: otapackage
 	@echo -e ${CL_BLU}"..............########...##....##.##.....##.##....##................"${CL_BLU}
 	@echo -e ${CL_BLU}"...................................................................."${CL_BLU}
  	@echo -e ${CL_BLU}""${CL_BLU}
-	@echo "Package Complete: $(CUSTOM_TARGET_PACKAGE)"
-endif    # build_ota_package
-
+	@echo -e ${CL_CYN}"Package Complete: $(CUSTOM_TARGET_PACKAGE)"${CL_CYAN}${CL_RST}
+	
+endif   # build_ota_package
 # -----------------------------------------------------------------
 # The update package
 
