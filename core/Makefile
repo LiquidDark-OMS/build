@@ -1857,15 +1857,34 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE)
 	   $(if $(OEM_OTA_CONFIG), -o $(OEM_OTA_CONFIG)) \
 	   $(BUILT_TARGET_FILES_PACKAGE) $@
 
-CUSTOM_TARGET_PACKAGE := $(PRODUCT_OUT)/nougat-$(ANDROID_NAME)-$(ROM_VERSION).zip
+CUSTOM_TARGET_PACKAGE := $(PRODUCT_OUT)/nougat-$(ANDROID_NAME)-$(TARGET_PRODUCT).zip
 
 .PHONY: otapackage nougat
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 nougat: otapackage
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(CUSTOM_TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(CUSTOM_TARGET_PACKAGE) > $(CUSTOM_TARGET_PACKAGE).md5sum
+	@echo -e ${CL_BLU}""${CL_BLU}
+	@echo -e ${CL_BLU}"...................................................................."${CL_BLU}
+	@echo -e ${CL_BLU}"..........##.......####..#######..##.....##.####.########..........."${CL_BLU}
+	@echo -e ${CL_BLU}"..........##........##..##.....##.##.....##..##..##.....##.........."${CL_BLU}
+	@echo -e ${CL_BLU}"..........##........##..##.....##.##.....##..##..##......##........."${CL_BLU}
+	@echo -e ${CL_BLU}"..........##........##..##.....##.##.....##..##..##......##........."${CL_BLU}
+	@echo -e ${CL_BLU}"..........##........##..##.....##.##.....##..##..##......##........."${CL_BLU}
+	@echo -e ${CL_BLU}"..........##........##..##..##.##.##.....##..##..##.....##.........."${CL_BLU}
+	@echo -e ${CL_BLU}"..........########.####..#######...#######..####.########..........."${CL_BLU}
+	@echo -e ${CL_BLU}"...............................##..................................."${CL_BLU}
+	@echo -e ${CL_BLU}"...................................................................."${CL_BLU}
+	@echo -e ${CL_BLU}"..............########....######..########..##....##................"${CL_BLU}
+	@echo -e ${CL_BLU}"..............##.....##..##....##.##.....##.##...##................."${CL_BLU}
+	@echo -e ${CL_BLU}"..............##......##.##....##.##.....##.##..##.................."${CL_BLU}
+	@echo -e ${CL_BLU}"..............##......##.########.########..##.##..................."${CL_BLU}
+	@echo -e ${CL_BLU}"..............##......##.##....##.##...##...##..##.................."${CL_BLU}
+	@echo -e ${CL_BLU}"..............##.....##..##....##.##....##..##...##................."${CL_BLU}
+	@echo -e ${CL_BLU}"..............########...##....##.##.....##.##....##................"${CL_BLU}
+	@echo -e ${CL_BLU}"...................................................................."${CL_BLU}
+ 	@echo -e ${CL_BLU}""${CL_BLU}
 	@echo "Package Complete: $(CUSTOM_TARGET_PACKAGE)"
-
 endif    # build_ota_package
 
 # -----------------------------------------------------------------
