@@ -1877,19 +1877,11 @@ CUSTOM_TARGET_PACKAGE := $(PRODUCT_OUT)/nougat-$(ANDROID_NAME)-$(ROM_VERSION).zi
 .PHONY: otapackage nougat
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 nougat: otapackage
-
-	$(hide) $(MD5SUM) $(INTERNAL_OTA_PACKAGE_TARGET) > $(INTERNAL_OTA_PACKAGE_TARGET).md5sum
-
-endif    # build_ota_package
-
-.PHONY: otapackage nougat
-otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
-nougat: otapackage
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(CUSTOM_TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(CUSTOM_TARGET_PACKAGE) > $(CUSTOM_TARGET_PACKAGE).md5sum
 	@echo "Package Complete: $(CUSTOM_TARGET_PACKAGE)"
-	
-endif   # build_ota_package
+
+endif    # build_ota_package
 # -----------------------------------------------------------------
 # The update package
 
